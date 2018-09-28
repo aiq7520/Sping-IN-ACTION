@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-      <bean class="org.gege.forjava.SgtPeppers"></bean>
+    <bean class="org.gege.forjava.SgtPeppers" id="sgtPeppers"></bean>
+
+    <!--将自变量注入到构造器中-->
+    <bean class="org.gege.forjava.SgtPeppers" id="sgtPeppers1">
+        <constructor-arg name="aslist" value="aslist111"></constructor-arg>
+        <constructor-arg name="title" value="title111"></constructor-arg>
+        <property name="l" ref="setDemo"></property>
+    </bean>
+    <bean class="org.gege.forjava.SgtPeppers" id="sgtPeppers2" p:l-ref="setDemo">
+        <constructor-arg value="title222"></constructor-arg>
+        <constructor-arg value="aslist222"></constructor-arg>
+        <!--<constructor-arg>
+            <list></list>
+        </constructor-arg>-->
+    </bean>
+    <bean class="org.gege.forjava.SgtPeppers" id="sgtPeppers3" c:_0="title" c:aslist="ssss"/>
+    <!--<bean class="org.gege.forjava.SgtPeppers" id="sgtPeppers3" c:_0="title" c:_aslist="ssss"/>  测试后有问题-->
+
+
+    <!-- 构造器注入（1）-->
+    <bean class="org.gege.forjava.CDPlayer">
+        <constructor-arg ref="sgtPeppers"></constructor-arg>
+    </bean>
+    <!-- 构造器注入（2）-->
+    <bean id="cdPlayer1" class="org.gege.forjava.CDPlayer" c:cd-ref="sgtPeppers"></bean>
+    <bean id="cdPlayer2" class="org.gege.forjava.CDPlayer" c:_0-ref="sgtPeppers1"></bean>
+    <!--<bean id="cdPlayer3" class="org.gege.forjava.CDPlayer" c:_-ref="sgtPeppers3"></bean>--><!--编译器没通过   但却可以正常运行-->
+    <bean id="cdPlayer3" class="org.gege.forjava.CDPlayer" c:_0-ref="sgtPeppers3"></bean>
+
+    <util:list id="listDemo">
+        <value>1111111</value>
+        <value>2222222</value>
+    </util:list>
+
+    <util:set id="setDemo">
+        <value>33333</value>
+        <value>44444</value>
+    </util:set>
 
   </beans>
