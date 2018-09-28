@@ -30,8 +30,8 @@ hs_err_pid*
 */.settings/
 */.DS_Store
 .DS_Store
-*/.idea/
-.idea/
+*/.idea/**
+.idea/**
 gradlew
 gradlew.bat
 unused.txt
