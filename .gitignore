@@ -21,5 +21,22 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-.idea //忽略.idea文件夹及文件夹下文件
-*.iml //忽略以.iml结尾的文件
+#忽略.idea文件夹及文件夹下文件
+.idea
+#忽略以.iml结尾的文件
+*.iml
+
+*.ini
+*/.settings/
+*/.DS_Store
+.DS_Store
+*/.idea/
+.idea/
+gradlew
+gradlew.bat
+unused.txt
+
+*.tem
+*.temp
+
+**/target/**
