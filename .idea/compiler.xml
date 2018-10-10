@@ -9,5 +9,9 @@
         <module name="Spring_02_wiringbean" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="Spring_02_wiringbean" target="1.8" />
+      <module name="SpringINACTION" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

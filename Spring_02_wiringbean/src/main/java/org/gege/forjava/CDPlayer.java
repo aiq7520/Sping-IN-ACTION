@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CDPlayer {
-    private CompactDisc cd ;
+    private CompactDisc cd;
 
     public void setCd(CompactDisc cd) {
         this.cd = cd;
@@ -18,9 +18,11 @@ public class CDPlayer {
     public CDPlayer(CompactDisc cd) {
         this.cd = cd;
     }
-    public CDPlayer() {}
 
-    public void play(){
+    public CDPlayer() {
+    }
+
+    public void play() {
         cd.player();
     }
 

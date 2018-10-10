@@ -10,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -28,15 +29,16 @@ public class XMLConfigSpringTest {
 
 
     @Test
-    public void isNotNull(){
+    public void isNotNull() {
         Assert.assertNotNull(sgtPeppers);
         //通过名字获取 默认名字 全名 #n
-        SgtPeppers s = (SgtPeppers)   acx.getBean("org.gege.forjava.SgtPeppers#0");
+        SgtPeppers s = (SgtPeppers) acx.getBean("org.gege.forjava.SgtPeppers#0");
         System.out.println(s);
-        Assert.assertEquals(s,sgtPeppers);
+        Assert.assertEquals(s, sgtPeppers);
     }
+
     @Test
-    public void springBean(){
+    public void springBean() {
         Assert.assertNotNull(cdPlayer1);
         cdPlayer1.play();
         Assert.assertNotNull(cdPlayer2.getCd());
@@ -46,9 +48,9 @@ public class XMLConfigSpringTest {
     }
 
     @Test
-    public void springSet(){
+    public void springSet() {
         List<Object> setDemo = ((SgtPeppers) cdPlayer2.getCd()).getL();
-        for(Object s:setDemo){
+        for (Object s : setDemo) {
             System.out.println(s);
         }
     }

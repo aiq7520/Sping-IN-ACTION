@@ -45,4 +45,17 @@
         <value>44444</value>
     </util:set>
 
-  </beans>
+    <!--将集合注入到构造器中-->
+    <bean id="assembleList" class="org.gege.assemblelist.AssembleList">
+        <property name="str">
+            <list>
+                <value>str1</value>
+                <value>str2</value>
+                <value>str3</value>
+                <value>str4</value>
+                <value></value>
+            </list>
+        </property>
+
+    </bean>
+</beans>

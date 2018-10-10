@@ -22,19 +22,19 @@ public class JavaConfigSpringTest {
     private CDPlayer cd2;
 
     @Test
-    public void testIsNotNull(){
+    public void testIsNotNull() {
         Assert.assertNotNull(compactDisc);
     }
 
     @Test
-    public void testJavaWirited(){
+    public void testJavaWirited() {
         cd.play();
     }
 
     @Test
-    public void testInjectEques(){
+    public void testInjectEques() {
         //此测试可以验证 bean cd 和bean cd1 中在注入 CompactDisc的时候是同一个CompactDisc对象，说明disc实际调用只调用过一次
-        Assert.assertEquals(cd.getCd(),cd1.getCd());
+        Assert.assertEquals(cd.getCd(), cd1.getCd());
         //cd2的CompactDisc是通过传参注入的
         Assert.assertNotNull(cd2);
     }
